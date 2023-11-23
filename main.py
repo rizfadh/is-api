@@ -36,4 +36,7 @@ model = chef.load_model('model.pkl')
 async def heartAttack_pred(item : model_input):
     input = item.model_dump().values()
     prediction = chef.predict(model, list(input))
-    return {'prediction': str(prediction)}
+    return {
+        'data': item.model_dump_json(),
+        'prediction': str(prediction),
+    }
