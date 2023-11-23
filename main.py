@@ -37,6 +37,6 @@ async def heartAttack_pred(item : model_input):
     input = item.model_dump().values()
     prediction = chef.predict(model, list(input))
     return {
-        'data': item.model_dump_json(),
+        'data': item.model_dump(),
         'prediction': str(prediction),
     }
